@@ -32,14 +32,16 @@ var stringifyJSON = function(obj) {
       for (var i = 0; i<obj.length; i++) {
         str += stringifyJSON(obj[i]);
       }
-      str += "]";
+      if (str.charAt(str.length-1) !== "[") { str = str.slice(0, str.length-1) };
+      str += "],";
     } else {
       str += "{";
       for (key in obj) {
         str += '"' + key + '":';
         str += stringifyJSON(obj[key]);
       }
-      str += "}";
+      if (str.charAt(str.length-1) !== "{") { str = str.slice(0, str.length-1) };
+      str += "},";
     }
     return str;
 };
