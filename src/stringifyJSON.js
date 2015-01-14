@@ -26,20 +26,20 @@ var stringifyJSON = function(obj) {
     var str = "";
 
     if (typeof obj !== "object") {
-      return typeof obj === "string" ? str += '"' + obj + '",' : str += obj + ",";
+      typeof obj === "string" ? str += '"' + obj + '"': str += obj;
     } else if (Array.isArray(obj)) {
       str += "["
       for (var i = 0; i<obj.length; i++) {
-        str += strFunc(obj[i]);
+        str += stringifyJSON(obj[i]);
       }
-      str += "], ";
+      str += "]";
     } else {
       str += "{";
       for (key in obj) {
         str += '"' + key + '":';
-        str += strFunc(obj[key]);
+        str += stringifyJSON(obj[key]);
       }
-      str += "},";
+      str += "}";
     }
     return str;
 };
