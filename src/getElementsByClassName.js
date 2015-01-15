@@ -9,23 +9,20 @@ var getElementsByClassName = function(className) {
   var allNodes = document.childNodes;
 
   var findClasses = function(nodes) {
-    var foundClasses = [];
     for (var i = 0; i<nodes.length; i++) {
-      var classes = nodes[i].classList;
+      var currentNode = nodes[i];
+      var classes = currentNode.classList;
       if (classes !== undefined && classes.length !== 0) {
         for (var j = 0; j<classes.length; j++) {
             if (classes[j] === className) {
-              // alert("found");
-              hasClass.push(nodes[i]);
-              // alert(hasClass);
+              hasClass.push(currentNode);
             }
         }
       }
-      if (nodes[i].childNodes.length !== 0) {findClasses(nodes[i].childNodes);}
+      if (currentNode.childNodes.length !== 0) {findClasses(currentNode.childNodes);}
     }
     return hasClass;
   }
 
-  results = findClasses(allNodes);
-  return results;
+  return findClasses(allNodes);
 };
