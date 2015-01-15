@@ -6,7 +6,7 @@
 // But instead we're going to implement it from scratch:
 var getElementsByClassName = function(className) {
   var hasClass = [];
-  var bodyNodes = document.body.childNodes;
+  var allNodes = document.childNodes;
 
   var findClasses = function(nodes) {
     var foundClasses = [];
@@ -26,6 +26,6 @@ var getElementsByClassName = function(className) {
     return hasClass;
   }
 
-  results = findClasses(bodyNodes);
+  results = findClasses(allNodes);
   return results;
 };
