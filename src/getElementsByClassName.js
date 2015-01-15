@@ -15,9 +15,9 @@ var getElementsByClassName = function(className) {
       if (classes !== undefined && classes.length !== 0) {
         for (var j = 0; j<classes.length; j++) {
             if (classes[j] === className) {
-              alert("found");
+              // alert("found");
               hasClass.push(nodes[i]);
-              alert(hasClass);
+              // alert(hasClass);
             }
         }
       }
